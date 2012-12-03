@@ -69,6 +69,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,14 +77,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\YouTubeButtons.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sitecore modules\youtube\YouTubeUpload.aspx.cs">
+      <DependentUpon>YouTubeUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\CopyStream.cs" />
     <Compile Include="Utilities\ListVideos.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="sitecore modules\" />
+    <None Include="Config\SharedSource.YouTubeUpload.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sitecore modules\youtube\YouTubeUpload.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" D:\Websites\Officecore20.aws\Website\bin
+copy "$(ProjectDir)config\SharedSource.YouTubeUpload.config" D:\Websites\Officecore20.aws\Website\App_Config\Include
+xcopy "$(ProjectDir)sitecore Modules\youtube"  "D:\Websites\Officecore20.aws\Website\sitecore modules\youtube" /Y /I</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
