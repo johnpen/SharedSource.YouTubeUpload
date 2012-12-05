@@ -40,13 +40,17 @@
                 }
                 else
                 {
-                    UrlString url = new UrlString(string.Concat(new object[] { "/sitecore modules/youtube/youtubeupload.aspx?id=", item.ID }));
+                /*    UrlString url = new UrlString(string.Concat(new object[] { "/sitecore modules/youtube/youtubeupload.aspx?id=", item.ID }));
                     item.Uri.AddToUrlString(url);
-                    UIUtil.AddContentDatabaseParameter(url);
+                    UIUtil.AddContentDatabaseParameter(url); */
+
+                    UrlString str = new UrlString(UIUtil.GetUri("control:UploadYouTubeVideo"));
+                    str["id"] = item.ID.ToString();
+
                     ShowEditorTab tab = new ShowEditorTab();
                     tab.Command = "youtube:tab:show";
                     tab.Header = "Upload Video to YouTube";
-                    tab.Url = url.ToString();
+                    tab.Url = str.ToString();
                     tab.Icon = "/sitecore modules/youtube/images/youtube.png";
                     tab.Id = "YouTubeUploadTab";
                     tab.Closeable = true;

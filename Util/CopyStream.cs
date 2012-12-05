@@ -1,4 +1,4 @@
-﻿namespace SharedSource.YouTubeUpload.Utilities
+﻿namespace SharedSource.YouTubeUpload.Util
 {
     using System;
     using System.Collections.Generic;

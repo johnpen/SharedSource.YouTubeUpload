@@ -66,6 +66,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -84,13 +85,20 @@
       <DependentUpon>YouTubeUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Utilities\CopyStream.cs" />
-    <Compile Include="Utilities\ListVideos.cs" />
+    <Compile Include="UI\UploadVideoForm.cs" />
+    <Compile Include="Util\CopyStream.cs" />
+    <Compile Include="Util\ListVideos.cs" />
+    <Compile Include="Util\ResumableYouTubeUploader.cs" />
+    <Compile Include="Util\UploadVideoToYouTube.cs" />
+    <Compile Include="Util\UserState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\SharedSource.YouTubeUpload.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sitecore modules\youtube\UploadYouTubeVideo.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="sitecore modules\youtube\YouTubeUpload.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

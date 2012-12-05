@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense" xmlns:shell="http://www.sitecore.net/shell">
+    <UploadYouTubeVideo>
+
+        <FormDialog Icon="/sitecore modules/youtube/images/youtube.png" Header="YouTube Upload" Text="Upload Video to Youtube" CancelButton="false">
+            <Stylesheet Src="/sitecore modules/youtube/youtube.css" />
+            <CodeBeside Type="SharedSource.YouTubeUpload.UI.UploadVideoForm,SharedSource.YouTubeUpload"/>
+
+            <Border ID="form" Class="filenameContainer" GridPanel.Height="100%" GridPanel.VAlign="top" GridPanel.Width="500px">
+                <Edit ID="HandleId" Hidden="True"/>
+                <Edit ID="ItemId" Hidden="True"/>
+
+            <GridPanel ID="Grid" Width="500px" Height="100%" Fixed="true" Background="#F4F4F5" Columns="2">
+                <Border Padding="0px 0px 2px 0px">
+                    <Literal Text="Video Title:"/>
+                </Border>
+
+                <Edit ID="VideoTitle" Width="100%" />
+
+                <Border Padding="0px 0px 2px 0px">
+                    <Literal Text="Video Description:"/>
+                </Border>
+
+                <Edit ID="VideoDescription" Width="100%" />
+
+                <Border Padding="0px 0px 2px 0px">
+                    <Literal Text="Video Keywords:"/>
+                </Border>
+
+                <Edit ID="VideoKeywords" Width="100%" />
+
+                <Border Padding="0px 0px 2px 0px"  >
+                    <Literal Text="Video Category:"/>
+                </Border>
+
+                <Listbox ID="VideoCategory" Width="100%" Size="1" Multiple="false">
+                    <ListItem Value="Autos">Autos</ListItem>
+                    <ListItem Value="Music">Music</ListItem>
+                    <ListItem Value="Pets">Pets</ListItem>
+                    <ListItem Value="Sports">Sports</ListItem>
+                    <ListItem Value="Travel">Travel &amp; Events</ListItem>
+                    <ListItem Value="Games">Gadgets &amp; Games</ListItem>
+                    <ListItem Value="Comedy">Comedy</ListItem>
+                    <ListItem Value="People">People &amp; Blogs</ListItem>
+                    <ListItem Value="News">News &amp; Politics</ListItem>
+                    <ListItem Value="Entertainment">Entertainment</ListItem>
+                    <ListItem Value="Education">Education</ListItem>
+                    <ListItem Value="Howto">How to &amp; Style</ListItem>
+                    <ListItem Value="Nonprofit">Nonprofit &amp; Activism</ListItem>
+                    <ListItem Value="Tech">Science &amp; Technology</ListItem>
+                </Listbox>
+            </GridPanel>
+            </Border>
+
+                <Border ID="StartButton" Align="Right" >
+                    <Button Header="Process" Click="StartUploadVideo"/>
+                </Border>
+
+
+                <Border ID="Progress" Align="center" Visible="False">
+                    <ThemedImage ID="ProgressBar" Src="Images/Progress.gif" Width="94" Height="17"/>
+                    <br />
+                </Border>
+
+            <Border ID="ProgressText" Align="center" Visible="False">
+                <Literal id="StatusPC" Text=""/>
+                <Literal id="Status" Text="Uploading"/>
+            </Border>
+
+
+        </FormDialog>
+    </UploadYouTubeVideo>
+</control>
