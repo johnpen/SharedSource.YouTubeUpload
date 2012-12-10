@@ -40,10 +40,6 @@
                 }
                 else
                 {
-                /*    UrlString url = new UrlString(string.Concat(new object[] { "/sitecore modules/youtube/youtubeupload.aspx?id=", item.ID }));
-                    item.Uri.AddToUrlString(url);
-                    UIUtil.AddContentDatabaseParameter(url); */
-
                     UrlString str = new UrlString(UIUtil.GetUri("control:UploadYouTubeVideo"));
                     str["id"] = item.ID.ToString();
 

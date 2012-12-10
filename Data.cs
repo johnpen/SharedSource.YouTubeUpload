@@ -14,5 +14,6 @@
         public static ID ClientIDFieldID =      new ID("{666AF9C5-B6CE-4CAD-89EB-205532529F1F}");
         public static ID UserNameFieldID =      new ID("{3C8FD94A-1DD0-4E7C-97D4-75A7FB158A2F}");
         public static ID PasswordFieldID =      new ID("{C20DA9CB-331A-4BA3-9374-7B38AB5C05AB}");
+        public static ID YouTubeIDFieldID =     new ID("{348B0808-DB54-47FB-802F-606D642737A1}");
     }
 }

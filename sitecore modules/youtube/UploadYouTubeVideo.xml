@@ -3,7 +3,6 @@
     <UploadYouTubeVideo>
 
         <FormDialog Icon="/sitecore modules/youtube/images/youtube.png" Header="YouTube Upload" Text="Upload Video to Youtube" CancelButton="false">
-            <Stylesheet Src="/sitecore modules/youtube/youtube.css" />
             <CodeBeside Type="SharedSource.YouTubeUpload.UI.UploadVideoForm,SharedSource.YouTubeUpload"/>
 
             <Border ID="form" Class="filenameContainer" GridPanel.Height="100%" GridPanel.VAlign="top" GridPanel.Width="500px">
@@ -53,7 +52,7 @@
             </Border>
 
                 <Border ID="StartButton" Align="Right" >
-                    <Button Header="Process" Click="StartUploadVideo"/>
+                    <Button Header="Process" Click="StartUploadVideo" />
                 </Border>
 
 
@@ -65,6 +64,40 @@
             <Border ID="ProgressText" Align="center" Visible="False">
                 <Literal id="StatusPC" Text=""/>
                 <Literal id="Status" Text="Uploading"/>
+            </Border>
+
+
+            <Border ID="VideoStatus" Class="filenameContainer" GridPanel.Height="100%" GridPanel.VAlign="top" GridPanel.Width="700px">
+                <h2>
+                    <Literal id="VideoTitleText" />
+                </h2>
+                <br />
+                <div style="width:500px;float:left">
+                    <Literal id="VideoIframe" />
+                </div>
+                <div style="width:500px;float:left">
+                    
+                        <Literal id="VideoInfo" style="float:left;font-size:9pt;font-weight:bold" />
+                    
+                    <div style="width:100px;float:left;clear:both;padding-top:10px">
+                    Views :
+                    </div>
+                    <div style="width:100px;float:left;padding-top:10px">
+                        <Literal id="VideoViews" />
+                    </div>                    
+                    <div style="width:100px;float:left;clear:both">
+                    Comments :
+                    </div>
+                    <div style="width:100px;float:left">
+                        <Literal id="VideoComments" />
+                    </div>
+                    <div style="width:100px;float:left;clear:both">
+                    Uploaded :
+                    </div>
+                    <div style="width:100px;float:left">
+                        <Literal id="Videouploaded" />
+                    </div>                    
+                </div>                
             </Border>
 
 

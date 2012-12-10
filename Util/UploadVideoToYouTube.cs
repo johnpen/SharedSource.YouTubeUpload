@@ -10,6 +10,8 @@
     using Sitecore.Data.Items;
     using Sitecore.Diagnostics;
     using System.Threading;
+    using System;
+    using System.Net;
 
     public class UploadVideoToYouTube
     {
@@ -71,11 +73,21 @@
                 // Async Method
                 //uploader.InsertAsync(youTubeAuthenticator, newVideo, u);
 
-                var response = uploader.Insert(youTubeAuthenticator, newVideo);
-                string id = response.ResponseUri.PathAndQuery;
-                id = id.Substring(id.IndexOf("/uploads/") + 9, id.Length - id.IndexOf("/uploads/") - 9);
+                try
+                {
+                    var response = uploader.Insert(youTubeAuthenticator, newVideo);
+                    string id = response.ResponseUri.PathAndQuery;
+                    id = id.Substring(id.IndexOf("/uploads/") + 9, id.Length - id.IndexOf("/uploads/") - 9);
+                    Sitecore.Context.Job.Status.Messages.Add(id);
+                    Sitecore.Context.Job.Status.Failed = false;
+                }
+                catch (WebException ex)
+                {
+                    Sitecore.Context.Job.Status.Messages.Add( ex.StackTrace);
+                    Sitecore.Context.Job.Status.Failed = true;
+                    Log.Error("Youtube Video upload failed", ex, this);
+                }
 
-                Sitecore.Context.Job.Status.Messages.Add(id);
             }
         }
 
@@ -88,8 +100,14 @@
             this.uploader.AsyncOperationProgress += new AsyncOperationProgressEventHandler(uploader_AsyncOperationProgress);
         }
 
+        public event AsyncOperationCompletedEventHandler UploadCompleted;
+        public event AsyncOperationProgressEventHandler UploadProgress;
+    
+    
+
         void uploader_AsyncOperationProgress(object sender, AsyncOperationProgressEventArgs e)
         {
+            UploadProgress(sender, e);
             if (Sitecore.Context.Job != null)
             {
                 Sitecore.Context.Job.Status.Processed = e.ProgressPercentage;
@@ -99,7 +117,7 @@
 
         void uploader_AsyncOperationCompleted(object sender, AsyncOperationCompletedEventArgs e)
         {
-            
+            UploadCompleted(sender, e);
             if (Sitecore.Context.Job != null)
             {
                 if (e.Error == null)
