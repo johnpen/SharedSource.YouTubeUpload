@@ -75,6 +75,12 @@
             set;
         }
 
+        public string Link
+        {
+            get;
+            set;
+        }
+
 
         public YouTubeRequest GetRequest()
         {            
@@ -100,6 +106,7 @@
                     this.Views = entry.ViewCount;
                     this.Title = entry.Title;
                     this.Updated = entry.Updated;
+                    this.Link = entry.WatchPage.ToString();
                 }
             }
             catch
