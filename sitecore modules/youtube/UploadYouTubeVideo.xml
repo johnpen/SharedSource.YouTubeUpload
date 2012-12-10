@@ -94,9 +94,15 @@
                     <div style="width:100px;float:left;clear:both">
                     Uploaded :
                     </div>
-                    <div style="width:100px;float:left">
+                    <div style="width:200px;float:left">
                         <Literal id="Videouploaded" />
-                    </div>                    
+                    </div>
+                    <div style="width:100px;float:left;clear:both">
+                        View on YouTube :
+                    </div>
+                    <div style="width:200px;float:left">
+                        <Literal id="VideoLink" />
+                    </div>
                 </div>                
             </Border>
 

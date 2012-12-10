@@ -40,6 +40,7 @@
         protected Literal VideoViews;
         protected Literal VideoComments;
         protected Literal VideoUploaded;
+        protected Literal VideoLink;
         #endregion
 
         Sitecore.Data.Database master;
@@ -158,7 +159,8 @@
             VideoInfo.Text += "<div style=\"float:right;width:200px\">Video Information<br /></div>";
             VideoViews.Text = stats.Views.ToString();
             VideoComments.Text = stats.CommentCount.ToString();
-            VideoUploaded.Text = stats.Updated.ToString("dd MMMM yyyy");
+            VideoUploaded.Text = stats.Updated.ToString("dd MMMM yyyy HH:mm");
+            VideoLink.Text = "<a href=\"#\" onclick=\"window.open('" + stats.Link + "')\">" + stats.Link + "</a>";
         }
 
 
