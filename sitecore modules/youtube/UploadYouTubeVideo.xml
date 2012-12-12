@@ -75,7 +75,7 @@
                 <div style="width:500px;float:left">
                     <Literal id="VideoIframe" />
                 </div>
-                <div style="width:500px;float:left">
+                <div style="width:300px;float:left">
                     
                         <Literal id="VideoInfo" style="float:left;font-size:9pt;font-weight:bold" />
                     
