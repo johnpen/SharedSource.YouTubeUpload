@@ -40,7 +40,7 @@
         /// </summary>
         public int AutoPlay { get; set; }
         /// <summary>
-        /// Tuen off keyboards support
+        /// Turn off keyboards support
         /// </summary>
         public int DisableKeyboard { get; set; }
         /// <summary>
@@ -52,7 +52,7 @@
         /// </summary>
         public int Loop { get; set; }
         /// <summary>
-        /// Number of seconds to skip from the begining
+        /// Number of seconds to skip from the beginning 
         /// </summary>
         public int StartTime { get; set; }
         /// <summary>
@@ -111,7 +111,7 @@
 
                 properties = WebUtil.ParseUrlParameters(parameters);
 
-                this.Width = TryParseIntDefault(properties["Width"],640);
+                this.Width = TryParseIntDefault(properties["Width"], 640);
                 this.Height = TryParseIntDefault(properties["Height"], 390);
                 this.AutoHide = TryParseBoolIntDefault(properties["Auto Hide"], true);
                 this.AutoPlay = TryParseBoolIntDefault(properties["Auto Play"], false);
@@ -137,7 +137,7 @@
         public int TryParseBoolIntDefault(string s, bool defaultValue)
         {
             bool newValue;
-            if (! bool.TryParse(s, out newValue))
+            if ( ! bool.TryParse(s, out newValue))
             {
                 newValue = defaultValue;
             }

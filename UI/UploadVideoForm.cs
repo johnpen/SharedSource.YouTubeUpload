@@ -139,7 +139,7 @@
                 }
                 else
                 {
-                    SheerResponse.ShowError( job.Status.Messages[1],"X");
+                    SheerResponse.ShowError(job.Status.Messages[1],"X");
                 }
             }
         }
@@ -167,12 +167,12 @@
 
         protected bool ValidateFormInput()
         {
-            if(string.IsNullOrEmpty(VideoTitle.Value))
+            if (string.IsNullOrEmpty(VideoTitle.Value))
             {
                 Sitecore.Context.ClientPage.ClientResponse.Alert("Video Title missing");  
                 return false;
             }
-            if (VideoTitle.Value.Length <4)
+            if (VideoTitle.Value.Length < 4)
             {
                 Sitecore.Context.ClientPage.ClientResponse.Alert("Video Title is to short");
                 return false;

@@ -71,7 +71,7 @@
                 newVideo.Links.Add(link);
 
                 // Async Method
-                //uploader.InsertAsync(youTubeAuthenticator, newVideo, u);
+                // uploader.InsertAsync(youTubeAuthenticator, newVideo, u);
 
                 try
                 {
@@ -83,7 +83,7 @@
                 }
                 catch (WebException ex)
                 {
-                    Sitecore.Context.Job.Status.Messages.Add( ex.StackTrace);
+                    Sitecore.Context.Job.Status.Messages.Add(ex.StackTrace);
                     Sitecore.Context.Job.Status.Failed = true;
                     Log.Error("Youtube Video upload failed", ex, this);
                 }
